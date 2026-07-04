@@ -1,11 +1,10 @@
 const weddingDate = new Date("2026-10-03T13:30:00-06:00");
 const whatsappNumber = "50689119310";
-const youtubeMusicUrl =
-  "https://www.youtube.com/watch?v=qrjSLC-5Nc0&list=PLN62l-ONobAHWfaC1m3EvrJOSX8M3T4f4";
 
 const cover = document.getElementById("cover");
 const openInvitation = document.getElementById("openInvitation");
 const musicButton = document.getElementById("musicButton");
+const weddingMusic = document.getElementById("weddingMusic");
 const revealItems = document.querySelectorAll(".reveal");
 const rsvpForm = document.getElementById("rsvpForm");
 let isOpening = false;
@@ -86,9 +85,23 @@ function updateCountdown() {
 updateCountdown();
 window.setInterval(updateCountdown, 1000);
 
-musicButton.addEventListener("click", () => {
-  musicButton.classList.add("playing");
-  window.open(youtubeMusicUrl, "_blank", "noopener,noreferrer");
+musicButton.addEventListener("click", async () => {
+  try {
+    if (weddingMusic.paused) {
+      await weddingMusic.play();
+      musicButton.classList.add("playing");
+      musicButton.setAttribute("aria-label", "Pausar música");
+      return;
+    }
+
+    weddingMusic.pause();
+    musicButton.classList.remove("playing");
+    musicButton.setAttribute("aria-label", "Reproducir música");
+  } catch (error) {
+    musicButton.classList.remove("playing");
+    musicButton.setAttribute("aria-label", "Reproducir música");
+    console.warn("No se pudo reproducir la música.", error);
+  }
 });
 
 rsvpForm.addEventListener("submit", (event) => {
@@ -99,6 +112,7 @@ rsvpForm.addEventListener("submit", (event) => {
   const message = document.getElementById("guestMessage").value.trim();
   const text = [
     "Hola, quiero confirmar mi asistencia a la boda de Mariana y Daniel.",
+    "Fecha límite para confirmar: 10 de agosto.",
     `Nombre: ${name}`,
     `Invitados: ${count}`,
     message ? `Mensaje: ${message}` : ""

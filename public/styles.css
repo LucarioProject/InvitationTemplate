@@ -1276,6 +1276,21 @@ body:not(.locked) .site {
     inset 0 0 0 1px rgba(79, 94, 82, 0.22);
 }
 
+/* v49: local music and RSVP deadline */
+.rsvp-deadline {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(79, 94, 82, 0.16);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--blue-900);
+  font-size: 0.95rem;
+}
+
+.rsvp-deadline strong {
+  color: var(--blue-900);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
