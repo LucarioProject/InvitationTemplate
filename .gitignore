@@ -1,0 +1,4 @@
+tmp/
+.codex-*.png
+node_modules/
+.env

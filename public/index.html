@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Invitación de boda digital de Sofía y Alejandro con fecha, ubicaciones, itinerario y confirmación por WhatsApp."
+    />
+    <title>Sofía & Alejandro | Invitación de Boda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css?v=35" />
+  </head>
+  <body class="locked">
+    <section class="cover" id="cover" aria-label="Portada de invitación">
+      <div class="cover__content">
+        <p class="cover__eyebrow">Tenemos el honor de invitarte</p>
+        <h1 class="cover-name">Sofía &amp; Alejandro</h1>
+        <p class="cover__date">15.02.2027</p>
+
+        <button class="mail-card" id="openInvitation" type="button" aria-label="Abrir invitación">
+          <img src="/assets/stamp/mail.png" alt="Sobre azul con sello" />
+        </button>
+
+        <p class="cover__hint">Haz clic para abrir</p>
+      </div>
+    </section>
+
+    <button class="music-button" id="musicButton" type="button" aria-label="Reproducir música">
+      <span aria-hidden="true"></span>
+    </button>
+
+    <main class="site invitation" id="site">
+      <header class="hero reveal" id="inicio">
+        <img src="/assets/couple-hero.png" alt="Sofía y Alejandro" />
+        <div class="hero__shade"></div>
+        <div class="hero__content">
+          <p>Nuestra boda</p>
+          <h2>Sofía &amp; Alejandro</h2>
+          <span>15 de febrero, 2027</span>
+        </div>
+      </header>
+
+      <section class="paper-section intro-block reveal">
+        <span class="flower flower--left" aria-hidden="true"></span>
+        <span class="flower flower--right" aria-hidden="true"></span>
+        <div class="section-inner center">
+          <p class="eyebrow">Acompáñanos</p>
+          <p class="script-line">a celebrar</p>
+          <h2>Nuestra boda</h2>
+          <div class="date-ticket">15 de febrero, 2027</div>
+          <div class="countdown" id="countdown" aria-label="Cuenta regresiva">
+            <div><strong id="days">000</strong><span>Días</span></div>
+            <div><strong id="hours">00</strong><span>Horas</span></div>
+            <div><strong id="minutes">00</strong><span>Min</span></div>
+            <div><strong id="seconds">00</strong><span>Seg</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section gratitude reveal">
+        <div class="section-inner narrow">
+          <img class="memory-photo" src="/assets/gratitude.png" alt="Detalle romántico de boda" />
+          <blockquote>
+            “Cuando te das cuenta de que quieres pasar el resto de tu vida con alguien, deseas que
+            el resto de tu vida comience cuanto antes.”
+          </blockquote>
+          <p class="thanks">
+            Gracias por ser parte de esta historia. Su cariño y compañía hacen que este día sea aún
+            más especial.
+          </p>
+        </div>
+      </section>
+
+      <section class="paper-section locations reveal" id="ubicaciones">
+        <div class="section-inner">
+          <p class="eyebrow center">Ceremonia &amp; recepción</p>
+          <div class="location-grid">
+            <article class="event-card">
+              <span class="line-icon">⌂</span>
+              <time>4:00 p. m.</time>
+              <h3>Ceremonia</h3>
+              <p>Santuario del Señor de la Piedad</p>
+              <small>Calle Principal, Centro</small>
+              <a href="https://maps.google.com/?q=Santuario%20del%20Se%C3%B1or%20de%20la%20Piedad" target="_blank" rel="noreferrer">Ver mapa</a>
+            </article>
+            <article class="event-card">
+              <span class="line-icon">♢</span>
+              <time>6:30 p. m.</time>
+              <h3>Recepción</h3>
+              <p>Casa Salcedo Eventos</p>
+              <small>Salón principal</small>
+              <a href="https://maps.google.com/?q=Casa%20Salcedo%20Eventos" target="_blank" rel="noreferrer">Ver mapa</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section itinerary-section reveal" id="detalles">
+        <div class="section-inner narrow center">
+          <p class="eyebrow">Detalles</p>
+          <h2>Itinerario</h2>
+          <div class="itinerary">
+            <div><time>4:00 p. m.</time><span></span><p>Ceremonia</p></div>
+            <div><time>5:00 p. m.</time><span></span><p>Sesión de fotos</p></div>
+            <div><time>6:30 p. m.</time><span></span><p>Cena</p></div>
+            <div><time>8:00 p. m.</time><span></span><p>Baile de novios</p></div>
+            <div><time>9:00 p. m.</time><span></span><p>Fiesta</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="banner reveal">
+        <img src="/assets/couple-hero.png" alt="Sofía y Alejandro en paisaje" />
+        <div>
+          <h2>Sofía &amp; Alejandro</h2>
+          <p>Nos encantaría compartir este día contigo</p>
+        </div>
+      </section>
+
+      <section class="paper-section details-grid reveal">
+        <div class="section-inner two-columns">
+          <article class="detail-card">
+            <p class="eyebrow">Sugerencias</p>
+            <h3>Regalos</h3>
+            <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle, agradecemos una contribución para nuestro nuevo hogar.</p>
+          </article>
+          <article class="detail-card">
+            <p class="eyebrow">Código de vestimenta</p>
+            <h3>Formal elegante</h3>
+            <p>Colores sugeridos: azul humo, verde salvia, gris perla y tonos neutros. Reservamos el blanco para la novia.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="paper-section confirm reveal" id="confirmar">
+        <div class="section-inner rsvp-layout">
+          <article class="rsvp-copy">
+            <p class="eyebrow">Confirma tu asistencia</p>
+            <h2>Nos encantará verte</h2>
+            <p>Por favor confirma antes del 10 de febrero para preparar cada detalle con mucho cariño.</p>
+          </article>
+          <form class="rsvp-form" id="rsvpForm">
+            <label>
+              Nombre completo
+              <input id="guestName" name="guestName" type="text" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              Número de personas
+              <select id="guestCount" name="guestCount">
+                <option>1 persona</option>
+                <option>2 personas</option>
+                <option>3 personas</option>
+                <option>4 personas</option>
+              </select>
+            </label>
+            <label>
+              Mensaje
+              <textarea id="guestMessage" name="guestMessage" rows="4" placeholder="Un mensaje para los novios"></textarea>
+            </label>
+            <button type="submit">Confirmar por WhatsApp</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="/script.js?v=35"></script>
+  </body>
+</html>

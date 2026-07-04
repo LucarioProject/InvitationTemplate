@@ -1,0 +1,14 @@
+{
+  "name": "invitacion-boda-plantilla",
+  "version": "1.0.0",
+  "description": "Invitacion web profesional para boda, lista para publicar en Railway.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}
