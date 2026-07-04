@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=52" />
+    <link rel="stylesheet" href="/styles.css?v=54" />
   </head>
   <body class="locked">
     <section class="cover" id="cover" aria-label="Portada de invitación">
@@ -84,7 +84,7 @@
             el resto de tu vida comience cuanto antes.”
           </blockquote>
           <p class="thanks">
-            Gracias por ser parte de esta historia. Su cariño y compañía hacen que este día sea aún
+            Gracias por ser parte de esta historia. Tu cariño y compañía hacen que este día sea aún
             más especial.
           </p>
         </div>
@@ -117,7 +117,28 @@
       <section class="paper-section scripture-section reveal" id="detalles">
         <div class="section-inner scripture-layout">
           <figure class="scripture-photo">
-            <img src="/assets/coupleBiblie.png" alt="Mariana y Daniel con una Biblia" />
+            <img
+              id="scriptureCarouselImage"
+              src="/assets/photo/0.png"
+              alt="Mariana y Daniel"
+            />
+            <button
+              class="carousel-button carousel-button--prev"
+              id="carouselPrev"
+              type="button"
+              aria-label="Foto anterior"
+            >
+              ‹
+            </button>
+            <button
+              class="carousel-button carousel-button--next"
+              id="carouselNext"
+              type="button"
+              aria-label="Siguiente foto"
+            >
+              ›
+            </button>
+            <figcaption class="carousel-count" id="carouselCount">1 / 5</figcaption>
           </figure>
           <article class="scripture-card">
             <p class="eyebrow">Proverbios 3:3</p>
@@ -227,6 +248,6 @@
       </footer>
     </main>
 
-    <script src="/script.js?v=52"></script>
+    <script src="/script.js?v=54"></script>
   </body>
 </html>

@@ -1,13 +1,19 @@
 const weddingDate = new Date("2026-10-03T13:30:00-06:00");
-const whatsappNumber = "50689119310";
+const whatsappNumber = "50689708329";
 
 const cover = document.getElementById("cover");
 const openInvitation = document.getElementById("openInvitation");
 const musicButton = document.getElementById("musicButton");
 const weddingMusic = document.getElementById("weddingMusic");
+const scriptureCarouselImage = document.getElementById("scriptureCarouselImage");
+const carouselPrev = document.getElementById("carouselPrev");
+const carouselNext = document.getElementById("carouselNext");
+const carouselCount = document.getElementById("carouselCount");
 const revealItems = document.querySelectorAll(".reveal");
 const rsvpForm = document.getElementById("rsvpForm");
+const carouselPhotos = ["0.png", "1.png", "2.png", "3.png", "4.png"];
 let isOpening = false;
+let carouselIndex = 0;
 
 openInvitation.addEventListener("pointerdown", () => {
   if (!isOpening) openInvitation.classList.add("is-pressing");
@@ -76,7 +82,7 @@ function updateCountdown() {
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
-  parts.days.textContent = String(days).padStart(3, "0");
+  parts.days.textContent = String(days);
   parts.hours.textContent = pad(hours);
   parts.minutes.textContent = pad(minutes);
   parts.seconds.textContent = pad(seconds);
@@ -84,6 +90,25 @@ function updateCountdown() {
 
 updateCountdown();
 window.setInterval(updateCountdown, 1000);
+
+function updateCarouselImage() {
+  scriptureCarouselImage.src = `/assets/photo/${carouselPhotos[carouselIndex]}`;
+  scriptureCarouselImage.alt = `Mariana y Daniel, foto ${carouselIndex + 1}`;
+  carouselCount.textContent = `${carouselIndex + 1} / ${carouselPhotos.length}`;
+}
+
+function moveCarousel(direction) {
+  carouselIndex = (carouselIndex + direction + carouselPhotos.length) % carouselPhotos.length;
+  scriptureCarouselImage.classList.remove("is-changing");
+  window.requestAnimationFrame(() => {
+    scriptureCarouselImage.classList.add("is-changing");
+    updateCarouselImage();
+  });
+}
+
+carouselPrev.addEventListener("click", () => moveCarousel(-1));
+carouselNext.addEventListener("click", () => moveCarousel(1));
+updateCarouselImage();
 
 musicButton.addEventListener("click", async () => {
   try {
