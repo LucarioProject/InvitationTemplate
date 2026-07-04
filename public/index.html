@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=49" />
+    <link rel="stylesheet" href="/styles.css?v=50" />
   </head>
   <body class="locked">
     <section class="cover" id="cover" aria-label="Portada de invitación">
@@ -44,7 +44,9 @@
     <button class="music-button" id="musicButton" type="button" aria-label="Reproducir música">
       <span aria-hidden="true"></span>
     </button>
-    <audio id="weddingMusic" src="/assets/musica_boda.m4a" preload="auto" loop></audio>
+    <audio id="weddingMusic" preload="auto" loop playsinline>
+      <source src="/assets/musica_boda.m4a" type="audio/mp4" />
+    </audio>
 
     <main class="site invitation" id="site">
       <header class="hero reveal" id="inicio">
@@ -221,6 +223,6 @@
       </footer>
     </main>
 
-    <script src="/script.js?v=49"></script>
+    <script src="/script.js?v=50"></script>
   </body>
 </html>
