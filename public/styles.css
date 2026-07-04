@@ -1291,6 +1291,67 @@ body:not(.locked) .site {
   color: var(--blue-900);
 }
 
+/* RSVP attendance radios */
+.attendance-options {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.attendance-options legend {
+  margin-bottom: 2px;
+  color: var(--blue-900);
+  font-weight: 700;
+}
+
+.attendance-options label {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 13px 15px;
+  border: 1px solid rgba(32, 37, 43, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.attendance-options label:hover {
+  border-color: rgba(79, 94, 82, 0.34);
+  box-shadow: 0 12px 28px rgba(53, 66, 56, 0.08);
+  transform: translateY(-1px);
+}
+
+.attendance-options input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  justify-self: center;
+  accent-color: var(--blue-800);
+}
+
+.attendance-options span {
+  display: block;
+  line-height: 1.25;
+}
+
+.attendance-options label:has(input:checked) {
+  border-color: rgba(79, 94, 82, 0.42);
+  background: linear-gradient(180deg, rgba(238, 242, 236, 0.92), rgba(255, 255, 255, 0.9));
+  box-shadow: inset 0 0 0 1px rgba(79, 94, 82, 0.08);
+}
+
 /* v51: scripture section replacing itinerary */
 .scripture-section {
   background:
@@ -1381,9 +1442,9 @@ body:not(.locked) .site {
   margin: 0;
   color: var(--ink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 4.8vw, 3.5rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.55rem);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.16;
 }
 
 .scripture-photo,
@@ -1411,7 +1472,7 @@ body:not(.locked) .site {
   }
 
   .scripture-card {
-    margin-top: -48px;
+    margin-top: -82px;
     width: min(92%, 520px);
     justify-self: center;
     z-index: 2;

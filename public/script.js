@@ -108,13 +108,13 @@ rsvpForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const name = document.getElementById("guestName").value.trim();
-  const count = document.getElementById("guestCount").value;
+  const attendance = document.querySelector("input[name='attendance']:checked").value;
   const message = document.getElementById("guestMessage").value.trim();
   const text = [
     "Hola, quiero confirmar mi asistencia a la boda de Mariana y Daniel.",
     "Fecha límite para confirmar: 10 de agosto.",
     `Nombre: ${name}`,
-    `Invitados: ${count}`,
+    `Asistencia: ${attendance}`,
     message ? `Mensaje: ${message}` : ""
   ]
     .filter(Boolean)

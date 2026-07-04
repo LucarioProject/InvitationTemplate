@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=51" />
+    <link rel="stylesheet" href="/styles.css?v=52" />
   </head>
   <body class="locked">
     <section class="cover" id="cover" aria-label="Portada de invitación">
@@ -202,15 +202,17 @@
               Nombre completo
               <input id="guestName" name="guestName" type="text" placeholder="Tu nombre" required />
             </label>
-            <label>
-              Número de personas
-              <select id="guestCount" name="guestCount">
-                <option>1 persona</option>
-                <option>2 personas</option>
-                <option>3 personas</option>
-                <option>4 personas</option>
-              </select>
-            </label>
+            <fieldset class="attendance-options">
+              <legend>Confirmación de asistencia</legend>
+              <label>
+                <input type="radio" name="attendance" value="Sí voy a asistir" required checked />
+                <span>Sí voy a asistir</span>
+              </label>
+              <label>
+                <input type="radio" name="attendance" value="No los voy a poder acompañar" required />
+                <span>No los voy a poder acompañar</span>
+              </label>
+            </fieldset>
             <label>
               Mensaje
               <textarea id="guestMessage" name="guestMessage" rows="4" placeholder="Un mensaje para los novios"></textarea>
@@ -225,6 +227,6 @@
       </footer>
     </main>
 
-    <script src="/script.js?v=51"></script>
+    <script src="/script.js?v=52"></script>
   </body>
 </html>
