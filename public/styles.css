@@ -1,18 +1,21 @@
 :root {
-  --blue-950: #102033;
-  --blue-900: #172b40;
-  --blue-800: #213a55;
-  --blue-700: #2d4a66;
-  --blue-100: #dfe8ef;
-  --sage: #87917b;
-  --sage-dark: #55604d;
+  --blue-950: #354238;
+  --blue-900: #4f5e52;
+  --blue-800: #6f7b6d;
+  --blue-700: #7f847b;
+  --blue-100: #eef2ec;
+  --sage: #6f7b6d;
+  --sage-dark: #4f5e52;
+  --rose: #c9a29b;
+  --blush: #f4dcd6;
+  --butter: #f4efcf;
   --cream: #fbfaf6;
   --paper: #f4f0e8;
   --ink: #20252b;
   --muted: #73736d;
-  --gold: #b9a56c;
-  --line: rgba(23, 43, 64, 0.14);
-  --shadow: 0 24px 70px rgba(16, 32, 51, 0.18);
+  --gold: #b79c5f;
+  --line: rgba(79, 94, 82, 0.16);
+  --shadow: 0 24px 70px rgba(79, 94, 82, 0.18);
 }
 
 * {
@@ -985,6 +988,100 @@ body:not(.locked) .site {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* v47: wedding data, sage palette, gifts, considerations and brand footer */
+.cover,
+.paper-section {
+  background:
+    radial-gradient(circle at 72% 38%, rgba(201, 162, 155, 0.16), transparent 9%),
+    radial-gradient(circle at 78% 40%, rgba(111, 123, 109, 0.16), transparent 12%),
+    linear-gradient(180deg, #fff 0%, #fff 72%, #f6f1e8 100%);
+}
+
+.hero__shade,
+.banner::after {
+  background:
+    linear-gradient(180deg, rgba(53, 66, 56, 0.1), rgba(53, 66, 56, 0.34) 52%, rgba(53, 66, 56, 0.72)),
+    radial-gradient(circle at 50% 22%, rgba(244, 220, 214, 0.16), transparent 24%);
+}
+
+.event-card,
+.detail-card,
+.rsvp-copy,
+.rsvp-form {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(246, 241, 232, 0.82)),
+    #fff;
+}
+
+.sinpe-line {
+  width: fit-content;
+  margin: 22px auto 0 !important;
+  padding: 14px 18px;
+  border: 1px solid rgba(111, 123, 109, 0.22);
+  background: rgba(244, 239, 207, 0.42);
+  color: var(--blue-900) !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 3.8vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.2 !important;
+}
+
+.dress-palette {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.dress-palette span {
+  width: clamp(38px, 9vw, 54px);
+  height: clamp(38px, 9vw, 54px);
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow:
+    0 12px 24px rgba(79, 94, 82, 0.15),
+    inset 0 0 0 1px rgba(32, 37, 43, 0.08);
+}
+
+.considerations {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(239, 242, 236, 0.92)),
+    #eef2ec;
+}
+
+.considerations h2 {
+  color: var(--blue-800);
+  font-size: clamp(3rem, 10vw, 6.6rem);
+  line-height: 0.88;
+}
+
+.considerations p:last-child {
+  margin: 24px auto 0;
+  max-width: 760px;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 5.2vw, 3rem);
+  line-height: 1.08;
+}
+
+.brand-footer {
+  display: grid;
+  place-items: center;
+  padding: 42px 20px 54px;
+  background: #fff;
+}
+
+.brand-footer img {
+  width: min(180px, 48vw);
+  height: auto;
+  opacity: 0.82;
+}
+
+.music-button.playing {
+  background: var(--rose);
 }
 
 /* v45: motion polish, reversible reveals and illustrated detail cards */

@@ -1,5 +1,7 @@
-const weddingDate = new Date("2027-02-15T16:00:00-06:00");
-const whatsappNumber = "50688888888";
+const weddingDate = new Date("2026-10-03T13:30:00-06:00");
+const whatsappNumber = "50689119310";
+const youtubeMusicUrl =
+  "https://www.youtube.com/watch?v=qrjSLC-5Nc0&list=PLN62l-ONobAHWfaC1m3EvrJOSX8M3T4f4";
 
 const cover = document.getElementById("cover");
 const openInvitation = document.getElementById("openInvitation");
@@ -84,65 +86,9 @@ function updateCountdown() {
 updateCountdown();
 window.setInterval(updateCountdown, 1000);
 
-let audioContext;
-let masterGain;
-let melodyTimer;
-let noteIndex = 0;
-
-const melody = [
-  392, 440, 494, 587, 523, 494, 440, 392,
-  330, 392, 440, 494, 440, 392, 330, 294
-];
-
-function playNote(frequency) {
-  if (!audioContext || !masterGain) return;
-
-  const now = audioContext.currentTime;
-  const oscillator = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-
-  oscillator.type = "sine";
-  oscillator.frequency.setValueAtTime(frequency, now);
-  gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.16, now + 0.04);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.9);
-
-  oscillator.connect(gain);
-  gain.connect(masterGain);
-  oscillator.start(now);
-  oscillator.stop(now + 0.95);
-}
-
-function startMusic() {
-  audioContext = audioContext || new AudioContext();
-  masterGain = masterGain || audioContext.createGain();
-  masterGain.gain.value = 0.32;
-  masterGain.connect(audioContext.destination);
-
-  playNote(melody[noteIndex % melody.length]);
-  melodyTimer = window.setInterval(() => {
-    noteIndex += 1;
-    playNote(melody[noteIndex % melody.length]);
-  }, 920);
+musicButton.addEventListener("click", () => {
   musicButton.classList.add("playing");
-}
-
-function stopMusic() {
-  window.clearInterval(melodyTimer);
-  melodyTimer = undefined;
-  musicButton.classList.remove("playing");
-}
-
-musicButton.addEventListener("click", async () => {
-  if (melodyTimer) {
-    stopMusic();
-    return;
-  }
-
-  if (audioContext?.state === "suspended") {
-    await audioContext.resume();
-  }
-  startMusic();
+  window.open(youtubeMusicUrl, "_blank", "noopener,noreferrer");
 });
 
 rsvpForm.addEventListener("submit", (event) => {
@@ -152,7 +98,7 @@ rsvpForm.addEventListener("submit", (event) => {
   const count = document.getElementById("guestCount").value;
   const message = document.getElementById("guestMessage").value.trim();
   const text = [
-    "Hola, quiero confirmar mi asistencia a la boda de Sofía y Alejandro.",
+    "Hola, quiero confirmar mi asistencia a la boda de Mariana y Daniel.",
     `Nombre: ${name}`,
     `Invitados: ${count}`,
     message ? `Mensaje: ${message}` : ""
