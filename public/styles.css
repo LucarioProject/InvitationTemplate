@@ -153,30 +153,27 @@ textarea {
   border: 0;
   background: transparent;
   cursor: pointer;
-  filter: drop-shadow(0 26px 30px rgba(16, 32, 51, 0.22));
+  filter: none;
   transform-origin: 50% 58%;
   transition:
     transform 0.62s cubic-bezier(0.16, 0.9, 0.22, 1),
-    filter 0.62s ease;
+    opacity 0.62s ease;
   animation: coverMailIn 1.2s ease 0.9s both;
 }
 
 .mail-card:hover {
   transform: translateY(-18px) scale(1.14);
-  filter:
-    drop-shadow(0 46px 50px rgba(16, 32, 51, 0.34))
-    saturate(1.12)
-    brightness(1.06);
+  opacity: 0.98;
 }
 
 .mail-card:active {
   transform: translateY(-4px) scale(0.96);
-  filter: drop-shadow(0 18px 22px rgba(16, 32, 51, 0.2));
+  opacity: 0.96;
 }
 
 .mail-card.is-pressing {
   transform: translateY(-2px) scale(0.975);
-  filter: drop-shadow(0 20px 24px rgba(16, 32, 51, 0.2));
+  opacity: 0.96;
 }
 
 .mail-card:focus-visible {
@@ -190,6 +187,9 @@ textarea {
 
 .mail-card img {
   width: 100%;
+  height: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .cover__hint-wrap {
@@ -248,29 +248,29 @@ textarea {
 @keyframes coverMailIn {
   from {
     opacity: 0;
-    filter: blur(14px) drop-shadow(0 16px 18px rgba(16, 32, 51, 0.1));
+    transform: translateY(18px) scale(0.985);
   }
 
   to {
     opacity: 1;
-    filter: blur(0) drop-shadow(0 26px 30px rgba(16, 32, 51, 0.22));
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes envelopeTap {
   0% {
     transform: translateY(-8px) scale(1.035);
-    filter: drop-shadow(0 34px 38px rgba(16, 32, 51, 0.25));
+    opacity: 1;
   }
 
   45% {
     transform: translateY(1px) scale(0.982) rotate(-0.18deg);
-    filter: drop-shadow(0 22px 24px rgba(16, 32, 51, 0.19));
+    opacity: 0.97;
   }
 
   100% {
     transform: translateY(-12px) scale(1.055);
-    filter: drop-shadow(0 40px 44px rgba(16, 32, 51, 0.25));
+    opacity: 1;
   }
 }
 
@@ -987,6 +987,197 @@ body:not(.locked) .site {
   }
 }
 
+/* v45: motion polish, reversible reveals and illustrated detail cards */
+.hero > img {
+  transform: scale(1.08);
+  transform-origin: 48% 42%;
+  animation: heroDrift 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero__shade {
+  animation: shadeBreath 8s ease-in-out infinite alternate;
+}
+
+.hero__content {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 1.15s ease,
+    transform 1.15s cubic-bezier(0.16, 0.9, 0.22, 1);
+}
+
+.hero.is-visible .hero__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.banner img,
+.memory-photo {
+  transform: scale(1.04);
+  transition:
+    transform 4.5s cubic-bezier(0.16, 0.9, 0.22, 1),
+    filter 1.1s ease;
+}
+
+.banner.is-visible img,
+.gratitude.is-visible .memory-photo {
+  transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 42px, 0) scale(0.985);
+  filter: blur(10px);
+  transition:
+    opacity 0.95s ease,
+    transform 1s cubic-bezier(0.16, 0.9, 0.22, 1),
+    filter 0.95s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+.intro-block .eyebrow,
+.intro-block .script-line,
+.intro-block h2,
+.intro-block .date-ticket,
+.intro-block .countdown,
+.event-card,
+.itinerary div,
+.detail-card,
+.rsvp-copy,
+.rsvp-form {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.85s cubic-bezier(0.16, 0.9, 0.22, 1);
+}
+
+.intro-block.is-visible .eyebrow,
+.intro-block.is-visible .script-line,
+.intro-block.is-visible h2,
+.intro-block.is-visible .date-ticket,
+.intro-block.is-visible .countdown,
+.locations.is-visible .event-card,
+.itinerary-section.is-visible .itinerary div,
+.details-grid.is-visible .detail-card,
+.confirm.is-visible .rsvp-copy,
+.confirm.is-visible .rsvp-form {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-block.is-visible .script-line,
+.locations.is-visible .event-card:nth-child(2),
+.details-grid.is-visible .detail-card:nth-child(2),
+.confirm.is-visible .rsvp-form {
+  transition-delay: 0.12s;
+}
+
+.intro-block.is-visible h2,
+.itinerary-section.is-visible .itinerary div:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.intro-block.is-visible .date-ticket,
+.itinerary-section.is-visible .itinerary div:nth-child(3) {
+  transition-delay: 0.28s;
+}
+
+.intro-block.is-visible .countdown,
+.itinerary-section.is-visible .itinerary div:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+.itinerary-section.is-visible .itinerary div:nth-child(5) {
+  transition-delay: 0.44s;
+}
+
+.detail-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(185, 165, 108, 0.16);
+  pointer-events: none;
+}
+
+.detail-icon {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.88), transparent 34%),
+    linear-gradient(145deg, rgba(223, 232, 239, 0.96), rgba(185, 165, 108, 0.2));
+  color: var(--blue-800);
+  box-shadow: 0 18px 35px rgba(16, 32, 51, 0.12);
+}
+
+.detail-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.detail-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.detail-card:hover .detail-icon {
+  transform: translateY(-4px) scale(1.04);
+  transition: transform 0.45s cubic-bezier(0.16, 0.9, 0.22, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@keyframes heroDrift {
+  0% {
+    transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+  }
+
+  50% {
+    transform: scale(1.13) translate3d(1.2%, -2.2%, 0);
+  }
+
+  100% {
+    transform: scale(1.1) translate3d(0.8%, 1%, 0);
+  }
+}
+
+@keyframes shadeBreath {
+  from {
+    opacity: 0.86;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /* v34: onepage blanco/floral inspirado en las capturas originales */
 .invitation {
   background:
@@ -1455,4 +1646,161 @@ blockquote {
   .itinerary div {
     grid-template-columns: 94px 34px 1fr;
   }
+}
+
+/* Final motion layer */
+.hero > img {
+  transform: scale(1.08);
+  transform-origin: 48% 42%;
+  animation: heroDrift 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero__shade {
+  animation: shadeBreath 8s ease-in-out infinite alternate;
+}
+
+.hero__content {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 1.15s ease,
+    transform 1.15s cubic-bezier(0.16, 0.9, 0.22, 1);
+}
+
+.hero.is-visible .hero__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.banner img,
+.memory-photo {
+  transform: scale(1.04);
+  transition:
+    transform 4.5s cubic-bezier(0.16, 0.9, 0.22, 1),
+    filter 1.1s ease;
+}
+
+.banner.is-visible img,
+.gratitude.is-visible .memory-photo {
+  transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 42px, 0) scale(0.985);
+  filter: blur(10px);
+  transition:
+    opacity 0.95s ease,
+    transform 1s cubic-bezier(0.16, 0.9, 0.22, 1),
+    filter 0.95s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+.intro-block .eyebrow,
+.intro-block .script-line,
+.intro-block h2,
+.intro-block .date-ticket,
+.intro-block .countdown,
+.event-card,
+.itinerary div,
+.detail-card,
+.rsvp-copy,
+.rsvp-form {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.85s cubic-bezier(0.16, 0.9, 0.22, 1);
+}
+
+.intro-block.is-visible .eyebrow,
+.intro-block.is-visible .script-line,
+.intro-block.is-visible h2,
+.intro-block.is-visible .date-ticket,
+.intro-block.is-visible .countdown,
+.locations.is-visible .event-card,
+.itinerary-section.is-visible .itinerary div,
+.details-grid.is-visible .detail-card,
+.confirm.is-visible .rsvp-copy,
+.confirm.is-visible .rsvp-form {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-block.is-visible .script-line,
+.locations.is-visible .event-card:nth-child(2),
+.details-grid.is-visible .detail-card:nth-child(2),
+.confirm.is-visible .rsvp-form {
+  transition-delay: 0.12s;
+}
+
+.intro-block.is-visible h2,
+.itinerary-section.is-visible .itinerary div:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.intro-block.is-visible .date-ticket,
+.itinerary-section.is-visible .itinerary div:nth-child(3) {
+  transition-delay: 0.28s;
+}
+
+.intro-block.is-visible .countdown,
+.itinerary-section.is-visible .itinerary div:nth-child(4) {
+  transition-delay: 0.36s;
+}
+
+.itinerary-section.is-visible .itinerary div:nth-child(5) {
+  transition-delay: 0.44s;
+}
+
+.detail-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(185, 165, 108, 0.16);
+  pointer-events: none;
+}
+
+.detail-icon {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.88), transparent 34%),
+    linear-gradient(145deg, rgba(223, 232, 239, 0.96), rgba(185, 165, 108, 0.2));
+  color: var(--blue-800);
+  box-shadow: 0 18px 35px rgba(16, 32, 51, 0.12);
+}
+
+.detail-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.detail-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.detail-card:hover .detail-icon {
+  transform: translateY(-4px) scale(1.04);
+  transition: transform 0.45s cubic-bezier(0.16, 0.9, 0.22, 1);
 }

@@ -40,10 +40,18 @@ const revealObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
+        return;
+      }
+
+      const farAbove = entry.boundingClientRect.bottom < -window.innerHeight * 0.15;
+      const farBelow = entry.boundingClientRect.top > window.innerHeight * 1.15;
+
+      if (farAbove || farBelow) {
+        entry.target.classList.remove("is-visible");
       }
     });
   },
-  { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+  { threshold: [0, 0.16], rootMargin: "0px 0px -4% 0px" }
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
