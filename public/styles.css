@@ -1241,6 +1241,41 @@ body:not(.locked) .site {
   transition: transform 0.45s cubic-bezier(0.16, 0.9, 0.22, 1);
 }
 
+/* v48: reserved dress-code palette */
+.details-grid .detail-card:nth-child(2) {
+  background: #fff;
+}
+
+.dress-palette-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 18px);
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.dress-palette-row strong {
+  color: var(--blue-900);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.dress-palette {
+  margin-top: 0;
+}
+
+.dress-palette .swatch-white {
+  border-color: rgba(79, 94, 82, 0.28);
+  box-shadow:
+    0 12px 24px rgba(79, 94, 82, 0.14),
+    inset 0 0 0 1px rgba(79, 94, 82, 0.22);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
