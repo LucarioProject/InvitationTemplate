@@ -27,12 +27,12 @@ openInvitation.addEventListener("click", () => {
   window.setTimeout(() => {
     cover.classList.add("is-open");
     document.body.classList.remove("locked");
-  }, 360);
+  }, 650);
 
   window.setTimeout(() => {
     cover.setAttribute("aria-hidden", "true");
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, 1010);
+  }, 1950);
 });
 
 const revealObserver = new IntersectionObserver(

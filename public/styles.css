@@ -65,13 +65,16 @@ textarea {
     radial-gradient(circle at 72% 38%, rgba(185, 165, 108, 0.2), transparent 9%),
     radial-gradient(circle at 78% 40%, rgba(135, 145, 123, 0.14), transparent 12%),
     linear-gradient(180deg, #fff 0%, #fff 72%, #f3f1eb 100%);
-  transition: opacity 0.9s ease, visibility 0s linear 0.9s, transform 0.9s ease;
+  transition:
+    opacity 1.25s cubic-bezier(0.22, 0.72, 0.12, 1),
+    visibility 0s linear 1.25s,
+    transform 1.25s cubic-bezier(0.22, 0.72, 0.12, 1);
 }
 
 .cover.is-open {
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.025);
+  transform: scale(1.018);
 }
 
 .cover__content {
@@ -92,6 +95,14 @@ textarea {
   text-transform: uppercase;
 }
 
+.cover__eyebrow {
+  color: #b79c5f;
+  font-size: clamp(0.76rem, 1.8vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  margin-bottom: -8px;
+}
+
 .cover h1,
 .banner h2 {
   margin: 0;
@@ -103,18 +114,27 @@ textarea {
   letter-spacing: 0;
 }
 
-.cover-name {
-  display: block;
+.cover .cover-name {
+  display: grid;
+  justify-items: center;
   width: 100%;
-  color: rgba(24, 28, 31, 0.76);
-  font-family: "Alex Brush", "Edwardian Script ITC", "Palace Script MT", "Segoe Script", cursive;
-  font-size: clamp(4.4rem, 13.5vw, 8.6rem);
+  margin: 4px 0 0;
+  color: rgba(25, 34, 42, 0.88);
+  font-family: "Alex Brush", cursive;
+  font-size: clamp(2.6rem, 10vw, 5rem);
   font-weight: 400;
-  font-style: italic;
-  line-height: 0.78;
+  font-style: normal;
+  line-height: 0.74;
   letter-spacing: 0;
-  text-shadow: 0 10px 28px rgba(16, 32, 51, 0.075);
+  text-shadow: 0 10px 24px rgba(16, 32, 51, 0.05);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   animation: coverFadeUp 1.35s cubic-bezier(0.16, 0.9, 0.22, 1) 0.2s both;
+}
+
+.cover .cover-name span {
+  display: block;
+  font: inherit;
 }
 
 .cover__date {
@@ -155,8 +175,8 @@ textarea {
 }
 
 .mail-card.is-pressing {
-  transform: translateY(-3px) scale(0.94);
-  filter: drop-shadow(0 14px 18px rgba(16, 32, 51, 0.18));
+  transform: translateY(-2px) scale(0.975);
+  filter: drop-shadow(0 20px 24px rgba(16, 32, 51, 0.2));
 }
 
 .mail-card:focus-visible {
@@ -165,44 +185,50 @@ textarea {
 }
 
 .mail-card.is-tapping {
-  animation: envelopeTap 0.46s cubic-bezier(0.16, 0.9, 0.22, 1) both;
+  animation: envelopeTap 0.82s cubic-bezier(0.2, 0.78, 0.18, 1) both;
 }
 
 .mail-card img {
   width: 100%;
 }
 
-.cover__hint {
+.cover__hint-wrap {
+  display: grid;
+  justify-items: center;
+  gap: 0;
   position: relative;
-  margin: 0;
-  color: #2f2b27;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.45rem, 4vw, 2.45rem);
-  line-height: 1.02;
+  width: min(68vw, 490px);
+  margin-top: -20px;
   animation: coverFadeUp 1.25s cubic-bezier(0.16, 0.9, 0.22, 1) 1.18s both;
 }
 
-.cover__hint::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  width: 52px;
-  height: 58px;
-  border-left: 2px dashed var(--gold);
-  border-bottom: 2px dashed var(--gold);
-  border-radius: 0 0 0 42px;
-  transform: translateX(-90%);
+.cover-arrow {
+  width: 150px;
+  height: 112px;
+  justify-self: start;
+  margin: -2px 0 -32px 22%;
+  overflow: visible;
 }
 
-.cover__hint::after {
-  content: "";
-  position: absolute;
-  left: calc(50% - 43px);
-  bottom: calc(100% - 8px);
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 11px solid var(--gold);
+.cover-arrow path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2.35;
+  stroke-linecap: round;
+  stroke-dasharray: 5 7;
+}
+
+.cover-arrow__head {
+  fill: var(--gold) !important;
+  stroke: none !important;
+}
+
+.cover__hint {
+  margin: 10px 0 0;
+  color: #2f2b27;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2.35vw, 1.05rem);
+  line-height: 1.02;
 }
 
 @keyframes coverFadeUp {
@@ -233,18 +259,18 @@ textarea {
 
 @keyframes envelopeTap {
   0% {
-    transform: translateY(-6px) scale(1.03);
-    filter: drop-shadow(0 30px 34px rgba(16, 32, 51, 0.24));
+    transform: translateY(-8px) scale(1.035);
+    filter: drop-shadow(0 34px 38px rgba(16, 32, 51, 0.25));
   }
 
-  42% {
-    transform: translateY(4px) scale(0.955) rotate(-0.6deg);
-    filter: drop-shadow(0 16px 18px rgba(16, 32, 51, 0.18));
+  45% {
+    transform: translateY(1px) scale(0.982) rotate(-0.18deg);
+    filter: drop-shadow(0 22px 24px rgba(16, 32, 51, 0.19));
   }
 
   100% {
-    transform: translateY(-10px) scale(1.045);
-    filter: drop-shadow(0 36px 40px rgba(16, 32, 51, 0.25));
+    transform: translateY(-12px) scale(1.055);
+    filter: drop-shadow(0 40px 44px rgba(16, 32, 51, 0.25));
   }
 }
 
@@ -1061,10 +1087,10 @@ body:not(.locked) .site {
 
 .script-line {
   margin: 10px 0 0;
-  color: rgba(32, 37, 43, 0.72);
+  color: rgba(25, 34, 42, 0.78);
   font-family: "Alex Brush", cursive;
-  font-size: clamp(2.2rem, 7vw, 4.6rem);
-  line-height: 0.9;
+  font-size: clamp(2.65rem, 7.6vw, 5rem);
+  line-height: 0.82;
 }
 
 .date-ticket {
@@ -1395,6 +1421,17 @@ blockquote {
 
   .mail-card {
     width: min(70vw, 360px);
+  }
+
+  .cover__hint-wrap {
+    width: min(70vw, 360px);
+  }
+
+  .cover-arrow {
+    width: 128px;
+    height: 96px;
+    margin-left: 16%;
+    margin-bottom: -30px;
   }
 
   .hero {

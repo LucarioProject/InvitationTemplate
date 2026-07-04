@@ -14,20 +14,30 @@
       href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=35" />
+    <link rel="stylesheet" href="/styles.css?v=44" />
   </head>
   <body class="locked">
     <section class="cover" id="cover" aria-label="Portada de invitación">
       <div class="cover__content">
         <p class="cover__eyebrow">Tenemos el honor de invitarte</p>
-        <h1 class="cover-name">Sofía &amp; Alejandro</h1>
+        <br>
+        <h1 class="cover-name">
+          <span>Sofía &amp;</span>
+          <span>Alejandro</span>
+        </h1>
         <p class="cover__date">15.02.2027</p>
 
         <button class="mail-card" id="openInvitation" type="button" aria-label="Abrir invitación">
           <img src="/assets/stamp/mail.png" alt="Sobre azul con sello" />
         </button>
 
-        <p class="cover__hint">Haz clic para abrir</p>
+        <div class="cover__hint-wrap" aria-hidden="true">
+          <svg class="cover-arrow" viewBox="0 0 150 112" role="img">
+            <path d="M22 4 C 24 30, 2 42, 18 66 C 32 88, 73 88, 103 74" />
+            <path class="cover-arrow__head" d="M99 63 L 120 70 L 102 84 Z" />
+          </svg>
+          <p class="cover__hint">Haz clic para abrir</p>
+        </div>
       </div>
     </section>
 
@@ -169,6 +179,6 @@
       </section>
     </main>
 
-    <script src="/script.js?v=35"></script>
+    <script src="/script.js?v=44"></script>
   </body>
 </html>
