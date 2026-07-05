@@ -12,7 +12,7 @@ const carouselCount = document.getElementById("carouselCount");
 const revealItems = document.querySelectorAll(".reveal");
 const rsvpForm = document.getElementById("rsvpForm");
 const carouselPhotos = ["0.png", "1.png", "2.png", "3.png", "4.png"];
-const assetVersion = "55";
+const assetVersion = "58";
 let isOpening = false;
 let carouselIndex = 0;
 

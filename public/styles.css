@@ -1739,6 +1739,16 @@ body:not(.locked) .site {
   text-transform: uppercase;
 }
 
+.countdown-label {
+  margin: 24px auto 0;
+  color: var(--blue-900);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .flower {
   position: absolute;
   width: 150px;
