@@ -133,13 +133,24 @@ musicButton.addEventListener("click", async () => {
 rsvpForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const name = document.getElementById("guestName").value.trim();
+  const guestNameInput = document.getElementById("guestName");
+  const name = guestNameInput.value.trim();
   const attendance = document.querySelector("input[name='attendance']:checked").value;
   const message = document.getElementById("guestMessage").value.trim();
+
+  if (!name) {
+    guestNameInput.setCustomValidity("Por favor escribe los nombres de los invitados.");
+    guestNameInput.reportValidity();
+    guestNameInput.focus();
+    return;
+  }
+
+  guestNameInput.setCustomValidity("");
+
   const text = [
     "Hola, quiero confirmar mi asistencia a la boda de Mariana y Daniel.",
     "Fecha límite para confirmar: 10 de agosto.",
-    `Nombre: ${name}`,
+    `Nombres de invitados: ${name}`,
     `Asistencia: ${attendance}`,
     message ? `Mensaje: ${message}` : ""
   ]

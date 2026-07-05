@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=56" />
+    <link rel="stylesheet" href="/styles.css?v=57" />
   </head>
   <body class="locked">
     <section class="cover" id="cover" aria-label="Portada de invitación">
@@ -176,7 +176,6 @@
               </svg>
             </span>
             <p class="eyebrow">Obsequios</p>
-            <h3>Regalos</h3>
             <p>Lo más importante para nosotros será contar con tu presencia.</p>
             <p>Si deseas hacernos un obsequio, tendremos sobres a disposición el día de la boda.</p>
             <p class="sinpe-line">SINPE Móvil: 8911-9310 / 8961-6820</p>
@@ -223,10 +222,6 @@
             <p class="rsvp-deadline"><strong>Fecha límite para confirmar:</strong> 10 de agosto.</p>
           </article>
           <form class="rsvp-form" id="rsvpForm">
-            <label>
-              Nombre completo
-              <input id="guestName" name="guestName" type="text" placeholder="Tu nombre" required />
-            </label>
             <fieldset class="attendance-options">
               <legend>Confirmación de asistencia</legend>
               <label>
@@ -238,6 +233,10 @@
                 <span>No los voy a poder acompañar</span>
               </label>
             </fieldset>
+            <label>
+              Nombres de invitados
+              <textarea id="guestName" name="guestName" rows="4" placeholder="Nombres de los invitados" required></textarea>
+            </label>
             <label>
               Mensaje
               <textarea id="guestMessage" name="guestMessage" rows="4" placeholder="Un mensaje para los novios"></textarea>
@@ -252,6 +251,6 @@
       </footer>
     </main>
 
-    <script src="/script.js?v=56"></script>
+    <script src="/script.js?v=57"></script>
   </body>
 </html>

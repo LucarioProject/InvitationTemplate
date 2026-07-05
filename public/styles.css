@@ -2022,7 +2022,11 @@ blockquote {
 }
 
 .rsvp-copy {
-  text-align: left;
+  text-align: center;
+}
+
+.rsvp-copy .rsvp-deadline {
+  text-align: center;
 }
 
 .rsvp-form {
