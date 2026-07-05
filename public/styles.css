@@ -161,20 +161,25 @@ textarea {
   transition:
     transform 0.62s cubic-bezier(0.16, 0.9, 0.22, 1),
     opacity 0.62s ease;
-  animation: coverMailIn 1.2s ease 0.9s both;
+  animation:
+    coverMailIn 1.2s ease 0.9s both,
+    mailBreath 4.8s ease-in-out 2.1s infinite;
 }
 
 .mail-card:hover {
+  animation-play-state: paused;
   transform: translateY(-18px) scale(1.14);
   opacity: 0.98;
 }
 
 .mail-card:active {
+  animation-play-state: paused;
   transform: translateY(-4px) scale(0.96);
   opacity: 0.96;
 }
 
 .mail-card.is-pressing {
+  animation-play-state: paused;
   transform: translateY(-2px) scale(0.975);
   opacity: 0.96;
 }
@@ -257,6 +262,17 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mailBreath {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.035);
   }
 }
 
