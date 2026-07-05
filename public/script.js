@@ -12,6 +12,7 @@ const carouselCount = document.getElementById("carouselCount");
 const revealItems = document.querySelectorAll(".reveal");
 const rsvpForm = document.getElementById("rsvpForm");
 const carouselPhotos = ["0.png", "1.png", "2.png", "3.png", "4.png"];
+const assetVersion = "55";
 let isOpening = false;
 let carouselIndex = 0;
 
@@ -92,7 +93,7 @@ updateCountdown();
 window.setInterval(updateCountdown, 1000);
 
 function updateCarouselImage() {
-  scriptureCarouselImage.src = `/assets/photo/${carouselPhotos[carouselIndex]}`;
+  scriptureCarouselImage.src = `/assets/photo/${carouselPhotos[carouselIndex]}?v=${assetVersion}`;
   scriptureCarouselImage.alt = `Mariana y Daniel, foto ${carouselIndex + 1}`;
   carouselCount.textContent = `${carouselIndex + 1} / ${carouselPhotos.length}`;
 }
